@@ -1,0 +1,79 @@
+{
+  "agent": "haoxiang",
+  "version": 1,
+  "memories": [
+    {
+      "id": "da2e8009e078",
+      "hash": "da2e8009e078",
+      "content": "晧香餐飲營運管理 — Discord Bot + 營收分析 + 排班系統",
+      "kind": "note",
+      "source": "memory.md",
+      "importance": 0.5,
+      "created_at": "2026-04-08T19:01:27.601271",
+      "merge_bonus": 0,
+      "merge_count": 1,
+      "tags": [
+        "haoxiang"
+      ],
+      "score": 0.55
+    },
+    {
+      "id": "93148f46dca0",
+      "hash": "93148f46dca0",
+      "content": "Session Log",
+      "kind": "note",
+      "source": "memory.md",
+      "importance": 0.5,
+      "created_at": "2026-04-08T19:01:27.601281",
+      "merge_bonus": 0,
+      "merge_count": 1,
+      "tags": [],
+      "score": 0.55
+    }
+  ],
+  "knowledge_graph": {
+    "nodes": [
+      {
+        "id": "tech:discord",
+        "type": "tech",
+        "label": "discord",
+        "mentions": 1
+      }
+    ],
+    "edges": []
+  },
+  "conflicts": [],
+  "stats": {
+    "total_extracted": 2,
+    "total_merged": 0,
+    "total_pruned": 0,
+    "last_run": "2026-04-08T19:01:27.601517"
+  },
+  "palace": {
+    "haoxiang": {
+      "note": [
+        "da2e8009e078"
+      ]
+    },
+    "general": {
+      "note": [
+        "93148f46dca0"
+      ]
+    }
+  },
+  "tag_index": {
+    "haoxiang": [
+      "da2e8009e078"
+    ]
+  },
+  "score_index": [
+    {
+      "id": "da2e8009e078",
+      "score": 0.55
+    },
+    {
+      "id": "93148f46dca0",
+      "score": 0.55
+    }
+  ]
+}
