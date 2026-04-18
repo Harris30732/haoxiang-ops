@@ -3,6 +3,19 @@
   "version": 1,
   "memories": [
     {
+      "id": "patrol-phase-1",
+      "hash": "patrol-phase-1",
+      "content": "巡檢 Phase 1 完成：專案認識。發現 4 個痛點：Windows路徑硬編碼、月份硬編碼、v18未部署、無測試機制。",
+      "kind": "note",
+      "source": "patrol",
+      "importance": 0.8,
+      "created_at": "2026-04-08T13:16:00.000000",
+      "merge_bonus": 0,
+      "merge_count": 1,
+      "tags": ["haoxiang", "patrol-phase-1"],
+      "score": 0.8
+    },
+    {
       "id": "da2e8009e078",
       "hash": "da2e8009e078",
       "content": "晧香餐飲營運管理 — Discord Bot + 營收分析 + 排班系統",

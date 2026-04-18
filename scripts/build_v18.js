@@ -20,7 +20,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const ROOT = __dirname;
+const ROOT = path.resolve(__dirname, '..');
 const v16 = JSON.parse(fs.readFileSync(path.join(ROOT, 'workflows', 'line-clock-in-bot-v16-refactored.json'), 'utf8'));
 
 // ============= 常數 =============
