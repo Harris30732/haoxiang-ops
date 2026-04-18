@@ -22,3 +22,6 @@ build/
 temp/
 .mcp.json
 .openclaw/
+
+# TS incremental
+tsconfig.tsbuildinfo
