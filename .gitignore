@@ -1,8 +1,24 @@
+# Node / Next.js
+node_modules/
+.next/
+out/
+*.log
+.DS_Store
+
+# Local env
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+dist/
+build/
+
+# Editor
+.vscode/
+.idea/
+
+# Keep legacy agent-framework / mcp exclusions
 temp/
-*.py
-*.txt
-merge_script.js
-unify_replies.js
-line-clock-in-bot-v14.json
 .mcp.json
 .openclaw/

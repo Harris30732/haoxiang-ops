@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  @apply h-full bg-neutral-50 text-neutral-900 antialiased;
+}
+
+/* 手機優先：讓頁面內容在任何小螢幕都不溢出 */
+body {
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 大按鈕預設尺寸（手指友善） */
+.btn-primary {
+  @apply w-full rounded-xl bg-brand py-4 text-lg font-semibold text-white active:bg-brand-dark disabled:bg-neutral-300;
+}
+.btn-secondary {
+  @apply w-full rounded-xl border border-neutral-300 bg-white py-4 text-lg font-medium text-neutral-800 active:bg-neutral-100 disabled:opacity-50;
+}
+.card {
+  @apply rounded-2xl bg-white p-4 shadow-sm border border-neutral-200;
+}

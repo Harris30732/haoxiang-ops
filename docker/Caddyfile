@@ -1,0 +1,17 @@
+# 把 ops.example.com 改成你的 domain
+# Caddy 會自動跟 Let's Encrypt 申請 HTTPS 憑證。
+# 如果 n8n 也在同一台 compose 裡 (service name = n8n)，把下面 n8n 段落打開。
+
+ops.example.com {
+  encode zstd gzip
+  reverse_proxy web:3000
+  header {
+    Strict-Transport-Security "max-age=31536000"
+    X-Content-Type-Options "nosniff"
+    Referrer-Policy "strict-origin-when-cross-origin"
+  }
+}
+
+# n8n.example.com {
+#   reverse_proxy n8n:5678
+# }

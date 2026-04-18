@@ -1,0 +1,58 @@
+# 與既有的 n8n 一起跑在同一台機器。
+# 只有 web + caddy 是本專案新增；請把你既有 n8n service 合併進這個 compose
+# （或讓 caddy 透過 host.docker.internal / 同網段 reverse proxy 到 n8n）。
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL}
+        NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+        NEXT_PUBLIC_LIFF_ID: ${NEXT_PUBLIC_LIFF_ID}
+    image: haoxiang-ops-web:latest
+    container_name: haoxiang-web
+    restart: unless-stopped
+    env_file: .env
+    expose:
+      - "3000"
+    networks:
+      - edge
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: haoxiang-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - edge
+
+  # 範例：若你要在同一份 compose 管 n8n，把下面打開並接好 volume
+  # n8n:
+  #   image: n8nio/n8n:latest
+  #   container_name: n8n
+  #   restart: unless-stopped
+  #   env_file: .env.n8n
+  #   expose:
+  #     - "5678"
+  #   volumes:
+  #     - n8n_data:/home/node/.n8n
+  #   networks:
+  #     - edge
+
+volumes:
+  caddy_data:
+  caddy_config:
+  # n8n_data:
+
+networks:
+  edge:
+    driver: bridge
