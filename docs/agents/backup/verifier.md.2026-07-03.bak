@@ -18,11 +18,8 @@ effort: high
    指令失敗＝該條 FAIL，貼出錯誤訊息原文的關鍵行。
 4. 文件類：read-back——實際打開檔案，確認承諾的章節與內容存在、內部無自相矛盾、
    引用的路徑與檔名真實存在（用 ls/Glob 驗證，不要憑印象）。
-5. 你是 read-only：不准 Edit/Write；Bash 只准跑讀取類指令與驗收指令
-   （npm run typecheck/lint/build、ls、git diff/log/status）。明確禁止：rm、mv、
-   git add/commit/checkout/reset、任何 `>` / `>>` 重導寫入既有檔案。
-   例外一：node_modules 缺失導致無法驗證時可以 `npm install`。
-   例外二：typecheck/build 自動產生的建置產物（.next/、*.tsbuildinfo）不算違規。
+5. 你是 read-only：不准 Edit/Write，不准 git commit，不准跑會改變狀態的指令
+   （npm install 除外，若 node_modules 缺失導致無法驗證可以裝）。
 6. 回報格式（你的最終訊息就是交付物）：
    - 第一行：整體判定 PASS 或 FAIL
    - 逐條驗收結果（PASS/FAIL/無法驗證 + 證據）

@@ -11,8 +11,6 @@
 2. 驗證閘通過：改了 `.ts/.tsx` → `npm run typecheck && npm run lint` 實際跑過且 exit 0；
    動到頁面流程/設定 → 加 `npm run build`。「應該會過」不算跑過。
 3. 產出已落檔且已 commit + push（本環境沒 push＝沒做）。
-   ※ 此條只適用於主對話（指揮官）。subagent 不准 commit（見 templates.md），
-   subagent 的「完成」＝交付物齊全＋驗證閘通過，commit 由主對話負責。
 4. 如果過程中砍了範圍（例如「太難先跳過」），回報裡明講砍了什麼，不能沉默。
 
 - ✅ 正例：改完 `clock.ts` → 跑 typecheck+lint 過 → commit push → 回報
@@ -21,13 +19,11 @@
   用「應該」遮掩沒驗證的事實。
 
 ### QG 分數 rubric（commit message 用）
-- **9-10**：驗證閘全過＋verifier（或 dispatch.md §6 的 fallback 派法／第二意見）驗收 PASS。
+- **9-10**：驗證閘全過＋verifier（或第二意見）驗收 PASS。
 - **7-8**：驗證閘全過，自己逐條對照過驗收條件，但沒有獨立驗收。
 - **5-6**：驗證閘過，但有已知的未處理邊角（要在 commit body 或回報裡寫明）。
 - **<5**：驗證閘沒過或沒跑 → 不准 commit 到共用分支；真要留進度就標 `[QG:skip]` 並說明原因。
 - 純文件/設定變動跑不了驗證閘：read-back 自查後最高給 8；verifier 驗過才給 9+。
-- 不碰程式也不碰文件內容的瑣碎 commit（如只改 .gitignore）：可用 `[QG:skip]`，
-  commit body 一句話說明為什麼 skip。
 
 ## 2. 何時該升級模型（配合 dispatch.md §5）
 
@@ -76,7 +72,6 @@
 | 產出 | 最低驗法 | 不算數的驗法 |
 |------|----------|--------------|
 | 程式碼 | typecheck+lint 實跑；行為改動再用 dev server 或臨時腳本實跑一次該流程 | 「我讀過一遍覺得對」 |
-| 行為改動但容器沒有 .env 真實憑證（常態） | 最低標準＝build 過＋把該邏輯抽出來用臨時腳本驗（假資料跑分支）；回報時明講「外部整合（Supabase/LIFF）未實跑」。不要為了測試去要生產憑證 | 假裝有跑過完整流程 |
 | 文件 | 逐條 read-back：承諾的內容存在、路徑真實（ls 驗證）、內部無矛盾 | 「剛寫完所以是對的」 |
 | SQL migration | 在乾淨的本機/分支資料庫跑過；沒有環境就明講「未實跑，僅靜態檢查」 | 直接 apply 到生產 |
 | 回答使用者的問題 | 每個關鍵宣稱都有 檔案:行號 或來源 URL 支撐 | 憑訓練記憶回答 repo 的事 |

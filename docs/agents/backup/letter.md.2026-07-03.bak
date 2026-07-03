@@ -6,9 +6,8 @@
 ## 三件沒人問、但你最需要知道的事
 
 ### 1. 這個 repo 的資料是員工的薪水，正確性排第一
-打卡時間、工時、業績回報最終會變成真人的薪資與對帳依據——v1 的歷史紀錄顯示
-打卡數據直接換算時薪；v2 schema 目前沒有時薪欄位，薪資計算在 repo 之外進行。
-（legacy 裡有一份 v1 時薪表，但那是舊資料，不可當現行值，也不要為此去翻 legacy。）所以：
+打卡時間、工時、業績回報最終會變成真人的薪資與對帳依據（v1 時代的時薪表在
+`legacy/v1-agent/MEMORY.md` 可考）。所以：
 - 任何時間邏輯都要想時區：伺服器/DB 是 UTC，門市營運在 Asia/Taipei，
   「開攤 1 小時內免報業績」這種窗口算錯 = 錢的糾紛。
 - 寧可打卡流程報錯擋住員工（他會找老闆），也不要默默寫入錯誤紀錄（一個月後才發現）。
@@ -40,13 +39,10 @@ v1 就是這樣爛掉的：repo 裡 v18 寫好了，生產還在跑 v17，文件
 
 ## 本 session 的交接狀態
 
-- 全部交付已完成並 push 到 `claude/fable5-system-design-7lo2my`，共七項：
-  診斷（00-diagnostic.md）、CLAUDE.md 重寫、調度守則（dispatch.md）、判斷力外化
-  （judgment.md）、派工模板（templates.md）、維護協議（maintenance.md + lessons.md）、本信。
-- 對抗審查（sonnet 讀者視角 + opus 事實審計，兩個 fresh-context agent）的發現與修正紀錄：
-  `docs/agents/reports/2026-07-03-adversarial-review.md`。
-- 未做（留給有需要的 session）：專案測試設施（tests/ + CI）仍不存在，
-  若使用者要求提升可靠性，這是第一優先建設。
+- 交付 A–G 全部完成並 push 到 `claude/fable5-system-design-7lo2my`。
+- 對抗審查與 read-back 驗證的結果見本目錄 README 或最終 commit 訊息。
+- 未做（留給有需要的 session）：`docs/agents/reports/` 目錄尚未建立（首次落報告時自己 mkdir）；
+  專案測試設施（tests/ + CI）仍不存在，若使用者要求提升可靠性，這是第一優先建設。
 
 ## 制度的極限（誠實條款）
 
